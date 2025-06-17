@@ -37,12 +37,16 @@ const Hero: React.FC = () => {
       <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto py-20">
           
-          {/* Leaf Emoji and Restaurant Name */}
+          {/* Clover Image and Restaurant Name */}
           <div className="mb-12 animate-fade-in">
             <div className="relative inline-block">
-              <div className="text-8xl sm:text-9xl lg:text-[12rem] mb-6 relative">
-                🍀
-                {/* Sparkle effects around the leaf */}
+              <div className="mb-6 relative flex justify-center">
+                <img 
+                  src="/madras_spice_hero_icon.png" 
+                  alt="Madras Spice Logo" 
+                  className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 object-contain drop-shadow-2xl"
+                />
+                {/* Sparkle effects around the clover */}
                 <Sparkles className="absolute -top-4 -right-4 w-8 h-8 text-yellow-400 animate-pulse" />
                 <Sparkles className="absolute -bottom-2 -left-2 w-6 h-6 text-orange-400 animate-pulse" style={{ animationDelay: '1s' }} />
                 <Sparkles className="absolute top-1/2 -right-8 w-5 h-5 text-pink-400 animate-pulse" style={{ animationDelay: '2s' }} />
