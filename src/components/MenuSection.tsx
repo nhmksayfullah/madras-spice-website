@@ -290,25 +290,25 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
     const isUnavailable = item.isSundayOnly && !isSunday();
 
     return (
-      <div className={`bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-orange-100 hover:border-orange-300 ${
+      <div className={`bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-orange-100 hover:border-orange-300 ${
         isUnavailable ? 'opacity-60' : ''
       }`}>
-        <div className="flex justify-between items-start mb-3">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
-              <h4 className="text-lg font-bold text-gray-800">{item.name}</h4>
-              <div className="flex gap-1">
+        <div className="flex justify-between items-center">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <h4 className="text-base font-bold text-gray-800 truncate">{item.name}</h4>
+              <div className="flex gap-1 flex-shrink-0">
                 {item.isPopular && (
-                  <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" title="Popular dish" />
+                  <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" title="Popular dish" />
                 )}
                 {item.isSpicy && (
-                  <Flame className="w-4 h-4 text-red-500" title="Spicy" />
+                  <Flame className="w-3 h-3 text-red-500" title="Spicy" />
                 )}
                 {item.isVegetarian && (
-                  <Leaf className="w-4 h-4 text-green-500" title="Vegetarian" />
+                  <Leaf className="w-3 h-3 text-green-500" title="Vegetarian" />
                 )}
                 {item.isVegan && (
-                  <div className="w-4 h-4 bg-green-600 rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 bg-green-600 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs font-bold">V</span>
                   </div>
                 )}
@@ -323,7 +323,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
               </div>
             </div>
             {item.description && (
-              <p className="text-gray-600 text-sm leading-relaxed mb-3">{item.description}</p>
+              <p className="text-gray-600 text-sm leading-relaxed mb-2 line-clamp-2">{item.description}</p>
             )}
             {isUnavailable && (
               <p className="text-red-600 text-sm font-medium">
@@ -331,17 +331,14 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
               </p>
             )}
           </div>
-          <div className="ml-4 flex-shrink-0">
-            <span className="text-xl font-bold text-orange-600">{formatPrice(item.price)}</span>
+          
+          <div className="flex items-center gap-3 ml-4 flex-shrink-0">
+            <span className="text-lg font-bold text-orange-600">{formatPrice(item.price)}</span>
+            <AddToBasketButton
+              onAdd={() => handleAddToBasket(item, category)}
+              className={`text-sm px-3 py-2 ${isUnavailable ? 'opacity-50 cursor-not-allowed' : ''}`}
+            />
           </div>
-        </div>
-        
-        <div className="flex justify-between items-center">
-          <div></div>
-          <AddToBasketButton
-            onAdd={() => handleAddToBasket(item, category)}
-            className={`text-sm ${isUnavailable ? 'opacity-50 cursor-not-allowed' : ''}`}
-          />
         </div>
       </div>
     );
@@ -669,7 +666,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           <div className="w-16 h-1 bg-orange-600 mx-auto mt-4"></div>
         </div>
         
-        <div className="grid gap-4 md:gap-6">
+        <div className="grid gap-3">
           {filteredItems.map((item, index) => (
             <MenuItemCard key={index} item={item} category={category} />
           ))}
