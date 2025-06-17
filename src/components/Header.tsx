@@ -28,7 +28,7 @@ const Header: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-white/20' 
-          : 'bg-transparent'
+          : 'bg-black/20 backdrop-blur-sm'
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
               className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
+                  : 'text-gray-800 hover:text-orange-600 bg-white/90 px-4 py-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl'
               }`}
             >
               Home
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
               className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
+                  : 'text-gray-800 hover:text-orange-600 bg-white/90 px-4 py-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl'
               }`}
             >
               About Us
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
               className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
+                  : 'text-gray-800 hover:text-orange-600 bg-white/90 px-4 py-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl'
               }`}
             >
               Menu
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
               className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
+                  : 'text-gray-800 hover:text-orange-600 bg-white/90 px-4 py-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl'
               }`}
             >
               Gallery
@@ -81,7 +81,7 @@ const Header: React.FC = () => {
               className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
                   ? 'text-gray-800 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
+                  : 'text-gray-800 hover:text-orange-600 bg-white/90 px-4 py-2 rounded-full shadow-lg hover:bg-white hover:shadow-xl'
               }`}
             >
               Contact
@@ -92,10 +92,10 @@ const Header: React.FC = () => {
           <div className="md:hidden absolute right-0">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`p-2 transition-all duration-300 hover:scale-110 ${
+              className={`p-3 rounded-full transition-all duration-300 hover:scale-110 ${
                 isScrolled 
-                  ? 'text-gray-800 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'
+                  ? 'text-gray-800 hover:text-orange-600 hover:bg-orange-50' 
+                  : 'text-gray-800 hover:text-orange-600 bg-white/90 hover:bg-white shadow-lg hover:shadow-xl'
               }`}
               aria-label="Toggle menu"
             >
