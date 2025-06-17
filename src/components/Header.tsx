@@ -38,50 +38,50 @@ const Header: React.FC = () => {
           <div className="hidden md:flex items-center justify-center space-x-8">
             <button 
               onClick={() => scrollToSection('hero')}
-              className={`font-medium transition-all duration-300 text-lg hover:scale-105 ${
+              className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-lg'
+                  ? 'text-gray-800 hover:text-orange-600' 
+                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
               }`}
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className={`font-medium transition-all duration-300 text-lg hover:scale-105 ${
+              className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-lg'
+                  ? 'text-gray-800 hover:text-orange-600' 
+                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
               }`}
             >
               About Us
             </button>
             <button 
               onClick={() => scrollToSection('menu')}
-              className={`font-medium transition-all duration-300 text-lg hover:scale-105 ${
+              className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-lg'
+                  ? 'text-gray-800 hover:text-orange-600' 
+                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
               }`}
             >
               Menu
             </button>
             <button 
               onClick={() => scrollToSection('gallery')}
-              className={`font-medium transition-all duration-300 text-lg hover:scale-105 ${
+              className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-lg'
+                  ? 'text-gray-800 hover:text-orange-600' 
+                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
               }`}
             >
               Gallery
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className={`font-medium transition-all duration-300 text-lg hover:scale-105 ${
+              className={`font-bold transition-all duration-300 text-lg hover:scale-105 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-lg'
+                  ? 'text-gray-800 hover:text-orange-600' 
+                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
               }`}
             >
               Contact
@@ -94,8 +94,8 @@ const Header: React.FC = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`p-2 transition-all duration-300 hover:scale-110 ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-orange-600' 
-                  : 'text-white hover:text-orange-300 drop-shadow-lg'
+                  ? 'text-gray-800 hover:text-orange-600' 
+                  : 'text-white hover:text-orange-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'
               }`}
               aria-label="Toggle menu"
             >
