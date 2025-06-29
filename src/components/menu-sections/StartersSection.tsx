@@ -62,11 +62,11 @@ const StartersSection: React.FC<StartersSectionProps> = ({
       
       <div className="grid gap-3">
         {filteredItems.map((item, index) => (
-          <div key={index} className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-orange-100 hover:border-orange-300">
-            <div className="flex justify-between items-center">
+          <div key={index} className="bg-white rounded-lg p-3 sm:p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-orange-100 hover:border-orange-300">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <h4 className="text-base font-bold text-gray-800 truncate">{item.name}</h4>
+                  <h4 className="text-sm sm:text-base font-bold text-gray-800 truncate">{item.name}</h4>
                   <div className="flex gap-1 flex-shrink-0">
                     {item.isPopular && (
                       <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" title="Popular dish" />
@@ -85,15 +85,15 @@ const StartersSection: React.FC<StartersSectionProps> = ({
                   </div>
                 </div>
                 {item.description && (
-                  <p className="text-gray-600 text-sm leading-relaxed mb-2 line-clamp-2">{item.description}</p>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-2 line-clamp-2">{item.description}</p>
                 )}
               </div>
               
-              <div className="flex items-center gap-3 ml-4 flex-shrink-0">
-                <span className="text-lg font-bold text-orange-600">{formatPrice(item.price)}</span>
+              <div className="flex flex-row sm:flex-col items-center justify-between sm:justify-center gap-2 sm:gap-3 sm:ml-4 flex-shrink-0">
+                <span className="text-base sm:text-lg font-bold text-orange-600 order-1 sm:order-none">{formatPrice(item.price)}</span>
                 <AddToBasketButton
                   onAdd={() => handleAddToBasket(item)}
-                  className="text-sm px-3 py-2"
+                  className="text-xs sm:text-sm px-2 sm:px-3 py-1.5 sm:py-2 order-2 sm:order-none"
                 />
               </div>
             </div>

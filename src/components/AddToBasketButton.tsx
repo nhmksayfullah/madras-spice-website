@@ -22,7 +22,7 @@ const AddToBasketButton: React.FC<AddToBasketButtonProps> = ({ onAdd, className 
   return (
     <button
       onClick={handleClick}
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
+      className={`inline-flex items-center justify-center gap-1 sm:gap-2 px-3 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 whitespace-nowrap ${
         isAdded 
           ? 'bg-green-600 text-white shadow-lg' 
           : 'bg-orange-600 text-white hover:bg-orange-700 shadow-md hover:shadow-lg'
@@ -30,13 +30,13 @@ const AddToBasketButton: React.FC<AddToBasketButtonProps> = ({ onAdd, className 
     >
       {isAdded ? (
         <>
-          <Check className="w-4 h-4" />
-          <span>Added!</span>
+          <Check className="w-3 h-3 sm:w-4 sm:h-4" />
+          <span className="text-xs sm:text-sm">Added!</span>
         </>
       ) : (
         <>
-          <Plus className="w-4 h-4" />
-          <span>Add to Basket</span>
+          <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
+          <span className="text-xs sm:text-sm">Add</span>
         </>
       )}
     </button>
