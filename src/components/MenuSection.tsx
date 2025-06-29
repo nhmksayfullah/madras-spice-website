@@ -399,11 +399,9 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
             </div>
           )}
 
-          {/* 10. Biryani Dishes (Builder) */}
+          {/* 10. Biryani Dishes (Builder) - REMOVED PADDING */}
           {shouldShowSection('biryani-dishes') && (
-            <div className="px-1 sm:px-2">
-              <BiryaniDishesBuilder onAddToBasket={onAddToBasket} />
-            </div>
+            <BiryaniDishesBuilder onAddToBasket={onAddToBasket} />
           )}
 
           {/* 11. Vegetable Side Dishes */}
