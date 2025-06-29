@@ -147,67 +147,127 @@ const BiryaniDishesBuilder: React.FC<BiryaniDishesBuilderProps> = ({ onAddToBask
             </div>
             
             <div className="p-4 sm:p-8">
-              <div className="grid gap-3 sm:gap-4">
+              <div className="space-y-3 sm:space-y-4">
                 {biryaniProteins.map((protein) => {
                   const dish = createBiryaniDish(protein);
                   const itemKey = `biryani-${protein.id}`;
                   const isAdded = addedItems.has(itemKey);
                   
                   return (
-                    <div key={protein.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 sm:p-4 border-2 border-gray-200 rounded-xl hover:border-orange-300 hover:bg-orange-50 transition-all duration-300 gap-3">
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
-                          <h4 className="text-base sm:text-lg font-bold text-gray-800 truncate">{dish.name}</h4>
+                    <div key={protein.id} className="bg-gray-50 border-2 border-gray-200 rounded-xl p-3 sm:p-4 hover:border-orange-300 hover:bg-orange-50 transition-all duration-300">
+                      {/* Mobile Layout: Stacked */}
+                      <div className="block sm:hidden">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h4 className="text-base font-bold text-gray-800 flex-1 min-w-0 truncate">{dish.name}</h4>
                           <div className="flex gap-1 flex-shrink-0">
                             {protein.isPopular && (
                               <div className="bg-orange-100 p-1 rounded-full">
-                                <Star className="w-3 h-3 sm:w-4 sm:h-4 text-orange-600 fill-orange-600" />
+                                <Star className="w-3 h-3 text-orange-600 fill-orange-600" />
                               </div>
                             )}
                             {protein.isVegetarian && (
                               <div className="bg-green-100 p-1 rounded-full">
-                                <Leaf className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
+                                <Leaf className="w-3 h-3 text-green-600" />
                               </div>
                             )}
                           </div>
                         </div>
-                        <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                        
+                        <p className="text-gray-600 text-sm leading-relaxed mb-3">
                           {dish.description}
                         </p>
+                        
+                        <div className="flex items-center justify-between">
+                          <div className="flex flex-col">
+                            <div className="text-xl font-bold text-orange-600">
+                              {formatPrice(dish.price)}
+                            </div>
+                            <div className="flex items-center gap-1 mt-1">
+                              <Flame className="w-3 h-3 text-red-500" />
+                              <Flame className="w-3 h-3 text-red-500" />
+                              <span className="text-xs text-red-600">Medium</span>
+                            </div>
+                          </div>
+                          
+                          <button
+                            onClick={() => handleQuickAdd(protein)}
+                            className={`px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300 transform hover:scale-105 whitespace-nowrap ${
+                              isAdded 
+                                ? 'bg-green-600 text-white shadow-lg' 
+                                : 'bg-gradient-to-r from-orange-600 to-red-600 text-white hover:from-orange-700 hover:to-red-700 shadow-lg hover:shadow-xl'
+                            }`}
+                          >
+                            {isAdded ? (
+                              <div className="flex items-center gap-1">
+                                <Check className="w-3 h-3" />
+                                <span>Added!</span>
+                              </div>
+                            ) : (
+                              <div className="flex items-center gap-1">
+                                <Plus className="w-3 h-3" />
+                                <span>Add</span>
+                              </div>
+                            )}
+                          </button>
+                        </div>
                       </div>
-                      
-                      <div className="flex flex-row sm:flex-col items-center justify-between sm:justify-center gap-2 sm:gap-4 sm:ml-6 flex-shrink-0">
-                        <div className="text-right order-1 sm:order-none">
-                          <div className="text-lg sm:text-2xl font-bold text-orange-600">
-                            {formatPrice(dish.price)}
+
+                      {/* Desktop Layout: Horizontal */}
+                      <div className="hidden sm:flex sm:items-center sm:justify-between">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-3 mb-2">
+                            <h4 className="text-lg font-bold text-gray-800 truncate">{dish.name}</h4>
+                            <div className="flex gap-1 flex-shrink-0">
+                              {protein.isPopular && (
+                                <div className="bg-orange-100 p-1 rounded-full">
+                                  <Star className="w-4 h-4 text-orange-600 fill-orange-600" />
+                                </div>
+                              )}
+                              {protein.isVegetarian && (
+                                <div className="bg-green-100 p-1 rounded-full">
+                                  <Leaf className="w-4 h-4 text-green-600" />
+                                </div>
+                              )}
+                            </div>
                           </div>
-                          <div className="flex items-center gap-1 justify-end mt-1">
-                            <Flame className="w-2 h-2 sm:w-3 sm:h-3 text-red-500" />
-                            <Flame className="w-2 h-2 sm:w-3 sm:h-3 text-red-500" />
-                            <span className="text-xs text-red-600">Medium</span>
-                          </div>
+                          <p className="text-gray-600 text-sm leading-relaxed">
+                            {dish.description}
+                          </p>
                         </div>
                         
-                        <button
-                          onClick={() => handleQuickAdd(protein)}
-                          className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 whitespace-nowrap order-2 sm:order-none ${
-                            isAdded 
-                              ? 'bg-green-600 text-white shadow-lg' 
-                              : 'bg-gradient-to-r from-orange-600 to-red-600 text-white hover:from-orange-700 hover:to-red-700 shadow-lg hover:shadow-xl'
-                          }`}
-                        >
-                          {isAdded ? (
-                            <div className="flex items-center gap-1 sm:gap-2">
-                              <Check className="w-3 h-3 sm:w-4 sm:h-4" />
-                              <span>Added!</span>
+                        <div className="flex items-center gap-4 ml-6 flex-shrink-0">
+                          <div className="text-right">
+                            <div className="text-2xl font-bold text-orange-600">
+                              {formatPrice(dish.price)}
                             </div>
-                          ) : (
-                            <div className="flex items-center gap-1 sm:gap-2">
-                              <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
-                              <span>Add</span>
+                            <div className="flex items-center gap-1 justify-end mt-1">
+                              <Flame className="w-3 h-3 text-red-500" />
+                              <Flame className="w-3 h-3 text-red-500" />
+                              <span className="text-xs text-red-600">Medium</span>
                             </div>
-                          )}
-                        </button>
+                          </div>
+                          
+                          <button
+                            onClick={() => handleQuickAdd(protein)}
+                            className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 whitespace-nowrap ${
+                              isAdded 
+                                ? 'bg-green-600 text-white shadow-lg' 
+                                : 'bg-gradient-to-r from-orange-600 to-red-600 text-white hover:from-orange-700 hover:to-red-700 shadow-lg hover:shadow-xl'
+                            }`}
+                          >
+                            {isAdded ? (
+                              <div className="flex items-center gap-2">
+                                <Check className="w-4 h-4" />
+                                <span>Added!</span>
+                              </div>
+                            ) : (
+                              <div className="flex items-center gap-2">
+                                <Plus className="w-4 h-4" />
+                                <span>Add</span>
+                              </div>
+                            )}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   );
