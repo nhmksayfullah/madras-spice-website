@@ -374,34 +374,6 @@ const TraditionalDishBuilder: React.FC<TraditionalDishBuilderProps> = ({ onAddTo
           </div>
         </div>
 
-        {/* Sauce Information Guide */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">
-            🌶️ Spice Level Guide
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
-            {['Mild', 'Medium', 'Medium to Hot', 'Hot', 'Very Hot'].map((level, index) => (
-              <div key={level} className="bg-white rounded-xl p-4 shadow-lg text-center border-2 border-gray-200">
-                <div className="flex justify-center mb-2">
-                  {[...Array(index + 1)].map((_, i) => (
-                    <Flame key={i} className="w-5 h-5 text-red-500" />
-                  ))}
-                </div>
-                <div className={`text-sm px-3 py-1 rounded-full font-bold ${getSpiceLevelColor(level)}`}>
-                  {level}
-                </div>
-                <div className="text-xs text-gray-600 mt-2">
-                  {index === 0 && 'Perfect for beginners'}
-                  {index === 1 && 'Most popular choice'}
-                  {index === 2 && 'Nice kick of heat'}
-                  {index === 3 && 'Seriously spicy'}
-                  {index === 4 && 'Extreme heat!'}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Call to Action */}
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 rounded-2xl p-8 lg:p-12 text-white">
