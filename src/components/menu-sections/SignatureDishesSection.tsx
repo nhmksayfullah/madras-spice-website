@@ -164,33 +164,6 @@ const SignatureDishesSection: React.FC<SignatureDishesSectionProps> = ({
           <SignatureDishCard key={index} item={item} />
         ))}
       </div>
-
-      {/* Special Call to Action for Signature Dishes */}
-      <div className="mt-12 text-center">
-        <div className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 rounded-3xl p-8 text-white shadow-2xl max-w-4xl mx-auto">
-          <h4 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2">
-            <Trophy className="w-8 h-8" />
-            Why Choose Our Signature Dishes?
-          </h4>
-          <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-              <div className="text-3xl mb-2">👨‍🍳</div>
-              <div className="font-bold">Chef's Expertise</div>
-              <div className="text-sm opacity-90">Masterfully crafted recipes</div>
-            </div>
-            <div className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-              <div className="text-3xl mb-2">🌟</div>
-              <div className="font-bold">Premium Ingredients</div>
-              <div className="text-sm opacity-90">Only the finest quality</div>
-            </div>
-            <div className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-              <div className="text-3xl mb-2">🏆</div>
-              <div className="font-bold">Authentic Tradition</div>
-              <div className="text-sm opacity-90">Time-honored techniques</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
