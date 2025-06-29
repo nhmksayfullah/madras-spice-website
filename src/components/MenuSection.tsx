@@ -99,9 +99,9 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
 
   const SetMealSection: React.FC<{ category: any }> = ({ category }) => {
     return (
-      <div className="mb-16">
+      <div className="mb-8 sm:mb-12">
         {/* Special Set Meal Header */}
-        <div className="text-center mb-12 relative">
+        <div className="text-center mb-8 sm:mb-12 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 opacity-10 rounded-3xl"></div>
           <div className="relative py-6 sm:py-8">
             <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
@@ -112,13 +112,13 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
               <Users className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-orange-600" />
             </div>
             <div className="w-24 sm:w-28 lg:w-32 h-1.5 sm:h-2 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 mx-auto rounded-full mb-3 sm:mb-4"></div>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed px-4">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed px-2">
               {category.description}
             </p>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {category.items.map((item: any, index: number) => (
             <SetMealCard 
               key={index} 
@@ -134,9 +134,9 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
 
   const SundaySpecialSection: React.FC<{ category: any }> = ({ category }) => {
     return (
-      <div className="mb-16">
+      <div className="mb-8 sm:mb-12">
         {/* Special Sunday Header */}
-        <div className="text-center mb-12 relative">
+        <div className="text-center mb-8 sm:mb-12 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-indigo-500 to-blue-500 opacity-10 rounded-3xl"></div>
           <div className="relative py-6 sm:py-8">
             <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
@@ -147,7 +147,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
               <Calendar className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-purple-600" />
             </div>
             <div className="w-24 sm:w-28 lg:w-32 h-1.5 sm:h-2 bg-gradient-to-r from-purple-400 via-indigo-500 to-blue-500 mx-auto rounded-full mb-3 sm:mb-4"></div>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed px-4">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed px-2">
               {category.description}
             </p>
             
@@ -170,7 +170,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {category.items.map((item: any, index: number) => (
             <SundaySpecialCard 
               key={index} 
@@ -196,21 +196,21 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
 
   return (
     <section id="menu" className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-orange-50 to-red-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4">
             Our <span className="text-orange-600">Menu</span>
           </h2>
           <div className="w-16 sm:w-20 lg:w-24 h-1 bg-orange-600 mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
             Explore our carefully curated selection of authentic Indian dishes, each prepared with traditional 
             recipes and the finest spices to deliver an unforgettable dining experience.
           </p>
         </div>
 
         {/* Enhanced Filters */}
-        <div className="mb-8 sm:mb-12">
+        <div className="mb-6 sm:mb-8">
           {/* Filter Header */}
           <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
             <Filter className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
@@ -218,7 +218,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           </div>
 
           {/* Main Category Filters */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-6 px-2">
             <button
               onClick={() => setSelectedCategory('all')}
               className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-all duration-200 text-sm sm:text-base ${
@@ -273,7 +273,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           </div>
 
           {/* Secondary Filters */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 px-2">
             {/* Vegetarian Filter */}
             <button
               onClick={() => setShowVegetarianOnly(!showVegetarianOnly)}
@@ -306,8 +306,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           </div>
         </div>
 
-        {/* Menu Content in Exact Order */}
-        <div className="max-w-6xl mx-auto">
+        {/* Menu Content in Exact Order - Consistent small margins */}
+        <div className="max-w-7xl mx-auto px-1 sm:px-2">
           {/* 1. Condiments */}
           {shouldShowSection('condiments') && (
             <CondimentsSection 
@@ -387,17 +387,23 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
 
           {/* 8. Traditional Dishes (Builder) */}
           {shouldShowSection('traditional-dishes') && (
-            <TraditionalDishBuilder onAddToBasket={onAddToBasket} />
+            <div className="px-1 sm:px-2">
+              <TraditionalDishBuilder onAddToBasket={onAddToBasket} />
+            </div>
           )}
 
           {/* 9. All Time Favourites (Builder) */}
           {shouldShowSection('all-time-favourites') && (
-            <AllTimeFavouritesBuilder onAddToBasket={onAddToBasket} />
+            <div className="px-1 sm:px-2">
+              <AllTimeFavouritesBuilder onAddToBasket={onAddToBasket} />
+            </div>
           )}
 
           {/* 10. Biryani Dishes (Builder) */}
           {shouldShowSection('biryani-dishes') && (
-            <BiryaniDishesBuilder onAddToBasket={onAddToBasket} />
+            <div className="px-1 sm:px-2">
+              <BiryaniDishesBuilder onAddToBasket={onAddToBasket} />
+            </div>
           )}
 
           {/* 11. Vegetable Side Dishes */}
@@ -456,7 +462,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
         </div>
 
         {/* Spice Level Guide - Moved to bottom */}
-        <div className="mt-12 sm:mt-16">
+        <div className="mt-8 sm:mt-12 px-2">
           <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 mb-6 sm:mb-8">
             🌶️ Spice Level Guide
           </h3>
@@ -484,7 +490,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
         </div>
 
         {/* Legend */}
-        <div className="mt-12 sm:mt-16 bg-white rounded-xl p-4 sm:p-6 shadow-lg max-w-2xl mx-auto">
+        <div className="mt-8 sm:mt-12 bg-white rounded-xl p-4 sm:p-6 shadow-lg max-w-2xl mx-auto">
           <h4 className="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4 text-center">Menu Legend</h4>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-1 sm:gap-2">
@@ -521,7 +527,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-12 sm:mt-16">
+        <div className="text-center mt-8 sm:mt-12 px-2">
           <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 text-white">
             <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
               <ChefHat className="w-6 h-6 sm:w-8 sm:h-8" />
