@@ -137,33 +137,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
             />
           ))}
         </div>
-
-        {/* Special Call to Action for Set Meals */}
-        <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 rounded-3xl p-8 text-white shadow-2xl max-w-4xl mx-auto">
-            <h4 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2">
-              <Users className="w-8 h-8" />
-              Why Choose Our Set Meals?
-            </h4>
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-                <div className="text-3xl mb-2">💰</div>
-                <div className="font-bold">Amazing Value</div>
-                <div className="text-sm opacity-90">Complete meal at great price</div>
-              </div>
-              <div className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-                <div className="text-3xl mb-2">🍽️</div>
-                <div className="font-bold">Complete Experience</div>
-                <div className="text-sm opacity-90">Starters, mains & sides included</div>
-              </div>
-              <div className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-                <div className="text-3xl mb-2">👥</div>
-                <div className="font-bold">Perfect for Two</div>
-                <div className="text-sm opacity-90">Ideal for couples & friends</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     );
   };
