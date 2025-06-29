@@ -103,31 +103,22 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
         {/* Special Set Meal Header */}
         <div className="text-center mb-12 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 opacity-10 rounded-3xl"></div>
-          <div className="relative py-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Utensils className="w-12 h-12 text-orange-600" />
-              <h3 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent">
+          <div className="relative py-6 sm:py-8">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <Utensils className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-orange-600" />
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent">
                 {category.name}
               </h3>
-              <Users className="w-12 h-12 text-orange-600" />
+              <Users className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-orange-600" />
             </div>
-            <div className="w-32 h-2 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 mx-auto rounded-full mb-4"></div>
-            <p className="text-gray-700 text-xl max-w-4xl mx-auto font-medium leading-relaxed">
+            <div className="w-24 sm:w-28 lg:w-32 h-1.5 sm:h-2 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 mx-auto rounded-full mb-3 sm:mb-4"></div>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed px-4">
               {category.description}
             </p>
-            
-            {/* Attention-grabbing banner */}
-            <div className="mt-6 bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-2xl inline-block shadow-2xl">
-              <div className="flex items-center gap-2 text-lg font-bold">
-                <Sparkles className="w-6 h-6" />
-                <span>🎉 COMPLETE DINING EXPERIENCE • EXCEPTIONAL VALUE • PERFECT FOR SHARING 🎉</span>
-                <Sparkles className="w-6 h-6" />
-              </div>
-            </div>
           </div>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {category.items.map((item: any, index: number) => (
             <SetMealCard 
               key={index} 
@@ -147,28 +138,28 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
         {/* Special Sunday Header */}
         <div className="text-center mb-12 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-indigo-500 to-blue-500 opacity-10 rounded-3xl"></div>
-          <div className="relative py-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Calendar className="w-12 h-12 text-purple-600" />
-              <h3 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent">
+          <div className="relative py-6 sm:py-8">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <Calendar className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-purple-600" />
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent">
                 {category.name}
               </h3>
-              <Calendar className="w-12 h-12 text-purple-600" />
+              <Calendar className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-purple-600" />
             </div>
-            <div className="w-32 h-2 bg-gradient-to-r from-purple-400 via-indigo-500 to-blue-500 mx-auto rounded-full mb-4"></div>
-            <p className="text-gray-700 text-xl max-w-4xl mx-auto font-medium leading-relaxed">
+            <div className="w-24 sm:w-28 lg:w-32 h-1.5 sm:h-2 bg-gradient-to-r from-purple-400 via-indigo-500 to-blue-500 mx-auto rounded-full mb-3 sm:mb-4"></div>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed px-4">
               {category.description}
             </p>
             
             {/* Availability Banner */}
-            <div className={`mt-6 px-8 py-4 rounded-2xl inline-block shadow-2xl ${
+            <div className={`mt-4 sm:mt-6 px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl inline-block shadow-2xl ${
               isSunday() 
                 ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white' 
                 : 'bg-gradient-to-r from-red-600 to-orange-600 text-white'
             }`}>
-              <div className="flex items-center gap-2 text-lg font-bold">
-                <Calendar className="w-6 h-6" />
-                <span>
+              <div className="flex items-center gap-2 text-base sm:text-lg font-bold">
+                <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span className="text-sm sm:text-base">
                   {isSunday() 
                     ? '🎉 AVAILABLE TODAY - SUNDAY SPECIAL! 🎉' 
                     : '📅 AVAILABLE SUNDAYS ONLY - DINE IN ONLY 📅'
@@ -179,7 +170,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           </div>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {category.items.map((item: any, index: number) => (
             <SundaySpecialCard 
               key={index} 
@@ -204,33 +195,33 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
   };
 
   return (
-    <section id="menu" className="py-16 lg:py-24 bg-gradient-to-br from-orange-50 to-red-50">
+    <section id="menu" className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-orange-50 to-red-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4">
             Our <span className="text-orange-600">Menu</span>
           </h2>
-          <div className="w-24 h-1 bg-orange-600 mx-auto mb-6"></div>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-16 sm:w-20 lg:w-24 h-1 bg-orange-600 mx-auto mb-4 sm:mb-6"></div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Explore our carefully curated selection of authentic Indian dishes, each prepared with traditional 
             recipes and the finest spices to deliver an unforgettable dining experience.
           </p>
         </div>
 
         {/* Enhanced Filters */}
-        <div className="mb-12">
+        <div className="mb-8 sm:mb-12">
           {/* Filter Header */}
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <Filter className="w-6 h-6 text-gray-600" />
-            <h3 className="text-xl font-bold text-gray-800">Filter Menu</h3>
+          <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
+            <Filter className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
+            <h3 className="text-lg sm:text-xl font-bold text-gray-800">Filter Menu</h3>
           </div>
 
           {/* Main Category Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
             <button
               onClick={() => setSelectedCategory('all')}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+              className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-all duration-200 text-sm sm:text-base ${
                 selectedCategory === 'all'
                   ? 'bg-orange-600 text-white shadow-lg'
                   : 'bg-white text-gray-700 hover:bg-orange-100 shadow-md'
@@ -248,7 +239,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
                 <button
                   key={section.id}
                   onClick={() => setSelectedCategory(section.id)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
+                  className={`px-2 sm:px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-1 sm:gap-2 text-xs sm:text-sm lg:text-base ${
                     selectedCategory === section.id
                       ? 'bg-orange-600 text-white shadow-lg'
                       : 'bg-white text-gray-700 hover:bg-orange-100 shadow-md'
@@ -258,22 +249,23 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
                     isBuilder ? 'border-2 border-green-400 bg-gradient-to-r from-green-100 to-emerald-100' : ''
                   }`}
                 >
-                  <IconComponent className="w-4 h-4" />
-                  {section.name}
+                  <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="hidden sm:inline">{section.name}</span>
+                  <span className="sm:hidden">{section.name.split(' ')[0]}</span>
                   {section.id === 'sunday-special' && !isSunday() && (
-                    <span className="text-xs bg-red-500 text-white px-2 py-1 rounded-full">Sunday Only</span>
+                    <span className="text-xs bg-red-500 text-white px-1 py-0.5 rounded-full hidden lg:inline">Sunday Only</span>
                   )}
                   {section.id === 'sunday-special' && isSunday() && (
-                    <span className="text-xs bg-green-500 text-white px-2 py-1 rounded-full">Available Today</span>
+                    <span className="text-xs bg-green-500 text-white px-1 py-0.5 rounded-full hidden lg:inline">Available Today</span>
                   )}
                   {section.id === 'set-meals' && (
-                    <span className="text-xs bg-orange-500 text-white px-2 py-1 rounded-full">For Two</span>
+                    <span className="text-xs bg-orange-500 text-white px-1 py-0.5 rounded-full hidden lg:inline">For Two</span>
                   )}
                   {section.id === 'premium-platters' && (
-                    <span className="text-xs bg-yellow-500 text-white px-2 py-1 rounded-full">Premium</span>
+                    <span className="text-xs bg-yellow-500 text-white px-1 py-0.5 rounded-full hidden lg:inline">Premium</span>
                   )}
                   {isBuilder && (
-                    <span className="text-xs bg-green-500 text-white px-2 py-1 rounded-full">Customizable</span>
+                    <span className="text-xs bg-green-500 text-white px-1 py-0.5 rounded-full hidden lg:inline">Custom</span>
                   )}
                 </button>
               );
@@ -281,27 +273,28 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           </div>
 
           {/* Secondary Filters */}
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
             {/* Vegetarian Filter */}
             <button
               onClick={() => setShowVegetarianOnly(!showVegetarianOnly)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
+              className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-1 sm:gap-2 text-sm sm:text-base ${
                 showVegetarianOnly
                   ? 'bg-green-600 text-white shadow-lg'
                   : 'bg-white text-gray-700 hover:bg-green-100 shadow-md'
               }`}
             >
-              <Leaf className="w-4 h-4" />
-              Vegetarian Only
+              <Leaf className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Vegetarian Only</span>
+              <span className="sm:hidden">Veg Only</span>
             </button>
 
             {/* Spice Level Filter */}
             <div className="flex items-center gap-2">
-              <span className="text-gray-700 font-medium">Spice Level:</span>
+              <span className="text-gray-700 font-medium text-sm sm:text-base hidden sm:inline">Spice Level:</span>
               <select
                 value={selectedSpiceLevel}
                 onChange={(e) => setSelectedSpiceLevel(e.target.value)}
-                className="px-3 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-medium focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                className="px-2 sm:px-3 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-medium focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm sm:text-base"
               >
                 {spiceLevels.map((level) => (
                   <option key={level.id} value={level.id}>
@@ -463,22 +456,22 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
         </div>
 
         {/* Spice Level Guide - Moved to bottom */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">
+        <div className="mt-12 sm:mt-16">
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 mb-6 sm:mb-8">
             🌶️ Spice Level Guide
           </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 max-w-4xl mx-auto">
             {['Mild', 'Medium', 'Medium to Hot', 'Hot', 'Very Hot'].map((level, index) => (
-              <div key={level} className="bg-white rounded-xl p-4 shadow-lg text-center border-2 border-gray-200">
+              <div key={level} className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-lg text-center border-2 border-gray-200">
                 <div className="flex justify-center mb-2">
                   {[...Array(index + 1)].map((_, i) => (
-                    <Flame key={i} className="w-5 h-5 text-red-500" />
+                    <Flame key={i} className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-red-500" />
                   ))}
                 </div>
-                <div className={`text-sm px-3 py-1 rounded-full font-bold ${getSpiceLevelColor(level)}`}>
+                <div className={`text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full font-bold ${getSpiceLevelColor(level)}`}>
                   {level}
                 </div>
-                <div className="text-xs text-gray-600 mt-2">
+                <div className="text-xs text-gray-600 mt-1 sm:mt-2">
                   {index === 0 && 'Perfect for beginners'}
                   {index === 1 && 'Most popular choice'}
                   {index === 2 && 'Nice kick of heat'}
@@ -491,35 +484,35 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
         </div>
 
         {/* Legend */}
-        <div className="mt-16 bg-white rounded-xl p-6 shadow-lg max-w-2xl mx-auto">
-          <h4 className="text-lg font-bold text-gray-800 mb-4 text-center">Menu Legend</h4>
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 text-sm">
-            <div className="flex items-center gap-2">
-              <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+        <div className="mt-12 sm:mt-16 bg-white rounded-xl p-4 sm:p-6 shadow-lg max-w-2xl mx-auto">
+          <h4 className="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4 text-center">Menu Legend</h4>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-xs sm:text-sm">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 fill-yellow-500" />
               <span className="text-gray-700">Popular</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Flame className="w-4 h-4 text-red-500" />
+            <div className="flex items-center gap-1 sm:gap-2">
+              <Flame className="w-3 h-3 sm:w-4 sm:h-4 text-red-500" />
               <span className="text-gray-700">Spicy</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Leaf className="w-4 h-4 text-green-500" />
+            <div className="flex items-center gap-1 sm:gap-2">
+              <Leaf className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
               <span className="text-gray-700">Vegetarian</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Trophy className="w-4 h-4 text-purple-500" />
+            <div className="flex items-center gap-1 sm:gap-2">
+              <Trophy className="w-3 h-3 sm:w-4 sm:h-4 text-purple-500" />
               <span className="text-gray-700">Signature</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Heart className="w-4 h-4 text-pink-500" />
+            <div className="flex items-center gap-1 sm:gap-2">
+              <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-pink-500" />
               <span className="text-gray-700">Favourite</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-purple-500" />
+            <div className="flex items-center gap-1 sm:gap-2">
+              <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-purple-500" />
               <span className="text-gray-700">Sunday Only</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-green-600 rounded-full flex items-center justify-center">
+            <div className="flex items-center gap-1 sm:gap-2 col-span-2 sm:col-span-1">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-green-600 rounded-full flex items-center justify-center">
                 <span className="text-white text-xs font-bold">V</span>
               </div>
               <span className="text-gray-700">Vegan</span>
@@ -528,23 +521,24 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-8 lg:p-12 text-white">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <ChefHat className="w-8 h-8" />
-              <h3 className="text-2xl lg:text-3xl font-bold">
+        <div className="text-center mt-12 sm:mt-16">
+          <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 text-white">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <ChefHat className="w-6 h-6 sm:w-8 sm:h-8" />
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">
                 Ready to Order?
               </h3>
             </div>
-            <p className="text-lg lg:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 opacity-90 max-w-2xl mx-auto">
               Call us now to place your takeaway order. All dishes are prepared fresh with authentic spices and traditional cooking methods.
             </p>
             <a
               href="tel:+44 161 973 3966"
-              className="inline-flex items-center gap-3 bg-white text-orange-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg"
+              className="inline-flex items-center gap-2 sm:gap-3 bg-white text-orange-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg"
             >
-              <span className="text-2xl">📞</span>
-              Call Now: +44 161 973 3966
+              <span className="text-xl sm:text-2xl">📞</span>
+              <span className="hidden sm:inline">Call Now: +44 161 973 3966</span>
+              <span className="sm:hidden">Call: +44 161 973 3966</span>
             </a>
           </div>
         </div>
