@@ -38,25 +38,25 @@ const Header: React.FC = () => {
           <div className="hidden lg:flex items-center justify-center space-x-6 xl:space-x-8">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="text-black font-light text-sm xl:text-base hover:text-orange-600 transition-colors duration-200 px-2 py-1"
+              className="text-black font-medium text-sm xl:text-base hover:text-orange-600 transition-colors duration-200 px-2 py-1"
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-black font-light text-sm xl:text-base hover:text-orange-600 transition-colors duration-200 px-2 py-1"
+              className="text-black font-medium text-sm xl:text-base hover:text-orange-600 transition-colors duration-200 px-2 py-1"
             >
               About Us
             </button>
             <button 
               onClick={() => scrollToSection('menu')}
-              className="text-black font-light text-sm xl:text-base hover:text-orange-600 transition-colors duration-200 px-2 py-1"
+              className="text-black font-medium text-sm xl:text-base hover:text-orange-600 transition-colors duration-200 px-2 py-1"
             >
               Menu
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-black font-light text-sm xl:text-base hover:text-orange-600 transition-colors duration-200 px-2 py-1"
+              className="text-black font-medium text-sm xl:text-base hover:text-orange-600 transition-colors duration-200 px-2 py-1"
             >
               Contact
             </button>
@@ -80,25 +80,25 @@ const Header: React.FC = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button
                 onClick={() => scrollToSection('hero')}
-                className="block w-full text-left px-3 py-3 text-base font-light text-black hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
+                className="block w-full text-left px-3 py-3 text-base font-medium text-black hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="block w-full text-left px-3 py-3 text-base font-light text-black hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
+                className="block w-full text-left px-3 py-3 text-base font-medium text-black hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
               >
                 About Us
               </button>
               <button
                 onClick={() => scrollToSection('menu')}
-                className="block w-full text-left px-3 py-3 text-base font-light text-black hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
+                className="block w-full text-left px-3 py-3 text-base font-medium text-black hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
               >
                 Menu
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-left px-3 py-3 text-base font-light text-black hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
+                className="block w-full text-left px-3 py-3 text-base font-medium text-black hover:text-orange-600 hover:bg-orange-50 rounded-md transition-colors duration-200"
               >
                 Contact
               </button>
