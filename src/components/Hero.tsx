@@ -19,18 +19,34 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Floating Spice Particles */}
-        <div className="absolute top-20 left-4 sm:left-10 w-3 h-3 sm:w-4 sm:h-4 bg-orange-400 rounded-full opacity-60 animate-bounce" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-32 sm:top-40 right-8 sm:right-20 w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full opacity-50 animate-bounce" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-32 sm:bottom-40 left-8 sm:left-20 w-4 h-4 sm:w-5 sm:h-5 bg-yellow-400 rounded-full opacity-40 animate-bounce" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-16 sm:bottom-20 right-4 sm:right-10 w-2 h-2 sm:w-3 sm:h-3 bg-pink-400 rounded-full opacity-60 animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+        {/* Floating Spice Particles - More Colorful */}
+        <div className="absolute top-20 left-4 sm:left-10 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-400 to-red-500 rounded-full opacity-80 animate-bounce shadow-lg" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute top-32 sm:top-40 right-8 sm:right-20 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full opacity-70 animate-bounce shadow-lg" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-32 sm:bottom-40 left-8 sm:left-20 w-5 h-5 sm:w-7 sm:h-7 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-60 animate-bounce shadow-lg" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-16 sm:bottom-20 right-4 sm:right-10 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-green-400 to-teal-500 rounded-full opacity-80 animate-bounce shadow-lg" style={{ animationDelay: '0.5s' }}></div>
         
-        {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-gradient-to-r from-orange-300 to-red-300 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full opacity-15 blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-gradient-to-r from-yellow-200 to-orange-200 rounded-full opacity-10 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        {/* Additional Colorful Particles */}
+        <div className="absolute top-1/3 left-1/3 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full opacity-60 animate-bounce shadow-lg" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-2/3 right-1/3 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-rose-400 to-pink-600 rounded-full opacity-70 animate-bounce shadow-lg" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute top-1/4 right-1/4 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-emerald-400 to-green-600 rounded-full opacity-50 animate-bounce shadow-lg" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute bottom-1/4 left-1/4 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-violet-400 to-purple-600 rounded-full opacity-80 animate-bounce shadow-lg" style={{ animationDelay: '0.8s' }}></div>
+        
+        {/* Enhanced Gradient Orbs with More Colors */}
+        <div className="absolute top-1/4 left-1/4 w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-gradient-to-r from-orange-300 via-red-400 to-pink-500 rounded-full opacity-30 blur-3xl animate-pulse shadow-2xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-gradient-to-r from-purple-300 via-pink-400 to-rose-500 rounded-full opacity-25 blur-3xl animate-pulse shadow-2xl" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 sm:w-80 sm:h-80 lg:w-[28rem] lg:h-[28rem] bg-gradient-to-r from-yellow-200 via-orange-300 to-red-400 rounded-full opacity-20 blur-3xl animate-pulse shadow-2xl" style={{ animationDelay: '2s' }}></div>
+        
+        {/* Additional Colorful Orbs */}
+        <div className="absolute top-10 right-10 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-r from-blue-300 via-indigo-400 to-purple-500 rounded-full opacity-15 blur-2xl animate-pulse shadow-xl" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute bottom-10 left-10 w-36 h-36 sm:w-52 sm:h-52 bg-gradient-to-r from-green-300 via-emerald-400 to-teal-500 rounded-full opacity-18 blur-2xl animate-pulse shadow-xl" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute top-3/4 right-1/3 w-28 h-28 sm:w-40 sm:h-40 bg-gradient-to-r from-rose-300 via-pink-400 to-fuchsia-500 rounded-full opacity-22 blur-2xl animate-pulse shadow-xl" style={{ animationDelay: '3.5s' }}></div>
+        
+        {/* Floating Color Streaks */}
+        <div className="absolute top-1/3 left-0 w-1 h-20 sm:h-32 bg-gradient-to-b from-transparent via-orange-400 to-transparent opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-2/3 right-0 w-1 h-24 sm:h-36 bg-gradient-to-b from-transparent via-pink-400 to-transparent opacity-40 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-1/3 left-1/2 w-24 sm:w-32 h-1 bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-30 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
       </div>
 
       {/* Main Content */}
@@ -46,13 +62,14 @@ const Hero: React.FC = () => {
                   alt="Madras Spice Logo" 
                   className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain drop-shadow-2xl"
                 />
-                {/* Sparkle effects around the clover */}
-                <Sparkles className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 animate-pulse" />
-                <Sparkles className="absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 w-4 h-4 sm:w-6 sm:h-6 text-orange-400 animate-pulse" style={{ animationDelay: '1s' }} />
-                <Sparkles className="absolute top-1/2 -right-4 sm:-right-8 w-3 h-3 sm:w-5 sm:h-5 text-pink-400 animate-pulse" style={{ animationDelay: '2s' }} />
+                {/* Enhanced Sparkle effects with more colors */}
+                <Sparkles className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 animate-pulse drop-shadow-lg" />
+                <Sparkles className="absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 w-4 h-4 sm:w-6 sm:h-6 text-orange-400 animate-pulse drop-shadow-lg" style={{ animationDelay: '1s' }} />
+                <Sparkles className="absolute top-1/2 -right-4 sm:-right-8 w-3 h-3 sm:w-5 sm:h-5 text-pink-400 animate-pulse drop-shadow-lg" style={{ animationDelay: '2s' }} />
+                <Sparkles className="absolute top-1/4 -left-3 sm:-left-6 w-4 h-4 sm:w-6 sm:h-6 text-purple-400 animate-pulse drop-shadow-lg" style={{ animationDelay: '1.5s' }} />
               </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-3 sm:mb-4 tracking-tight bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent" style={{ fontFamily: 'Georgia, serif' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-3 sm:mb-4 tracking-tight bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent drop-shadow-lg" style={{ fontFamily: 'Georgia, serif' }}>
               Madras Spice
             </h1>
             <div className="w-24 sm:w-32 h-1.5 sm:h-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 mx-auto rounded-full shadow-lg"></div>
