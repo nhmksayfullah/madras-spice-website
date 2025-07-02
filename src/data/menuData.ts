@@ -145,7 +145,7 @@ export const menuData: MenuCategory[] = [
       {
         name: 'Rashmi Kebab',
         description: 'Minced lamb wrapped in a delicate egg net',
-        price: 2.95,
+        price: 3.50,
         isSpicy: true
       }
     ]
@@ -401,16 +401,16 @@ export const menuData: MenuCategory[] = [
     description: 'Our chef\'s masterpieces - premium main courses that showcase the finest traditions of Indian cuisine, each dish crafted with exceptional care and authentic flavors.',
     items: [
       {
-        name: 'Madras Spice Special Tikka',
+        name: 'Madras Spice Special Tawa',
         description: 'An exotic collection of tandoori grilled dishes consist of lamb chops, chicken tikka, lamb tikka, king prawns & sheesh cooked with olive oil, mustard, coriander green peppers, red onions & egg fried.',
-        price: 10.95,
+        price: 11.95,
         isPopular: true,
         isSpicy: true
       },
       {
         name: 'Lamb Chops Karahi',
         description: 'Bangladeshi style succulent pieces cooked with fresh red, green peppers garnished with coriander, cucumber, herbs & spices.',
-        price: 10.95,
+        price: 11.95,
         isSpicy: true
       },
       {
@@ -420,7 +420,7 @@ export const menuData: MenuCategory[] = [
         isPopular: true
       },
       {
-        name: 'Balti Speciality',
+        name: 'Balti Exotica',
         description: 'Cooked with tandoori chicken, lamb tikka, chicken tikka & king prawn, medium spiced balti sauce.',
         price: 11.95,
         isSpicy: true
@@ -433,30 +433,30 @@ export const menuData: MenuCategory[] = [
       {
         name: 'Garlic Chilli (Chicken or Lamb)',
         description: 'Pieces of your choice in garlic and chilli sauce with coriander leaves and chilli pepper coffee.',
-        price: 8.95,
+        price: 9.95,
         isSpicy: true
       },
       {
-        name: 'Balti Bahar',
+        name: 'Sabzi Bahar',
         description: 'Cooked with stir fry, prawns, mushroom, potatoes & aubergine in thick medium sauce.',
         price: 7.95
       },
       {
-        name: 'Achalee (Chicken or Lamb)',
+        name: 'Shatkora (Chicken or Lamb)',
         description: 'Cooked with exotic selection of spices & aubergine in tangy sauce. Presented in a special way for easy eating & enjoyment.',
         price: 8.95,
         isSpicy: true
       },
       {
-        name: 'Salmon Nagla',
+        name: 'Salmon Naga',
         description: 'Tender grilled pieces of salmon cooked with chef\'s special homemade sauce to create medium spiced special dish.',
         price: 11.95,
         isPopular: true
       },
       {
-        name: 'Balti Fried Green Chana',
+        name: 'Balti Fried Cham Cham',
         description: 'Fried chicken cooked in medium, with red & green pepper & tomatoes.',
-        price: 8.95,
+        price: 9.95,
         isSpicy: true
       },
       {
@@ -473,7 +473,7 @@ export const menuData: MenuCategory[] = [
         isSpicy: true
       },
       {
-        name: 'Sheila Mix',
+        name: 'Shahi Mix',
         description: 'Strip chicken tikka & minced lamb cooked with ginger, garlic & thick blend of medium spices & herbs topped with boiled egg.',
         price: 9.95,
         isSpicy: true
@@ -491,7 +491,7 @@ export const menuData: MenuCategory[] = [
         isSpicy: true
       },
       {
-        name: 'REZALLA',
+        name: 'Rezalla',
         description: 'Chicken or Lamb) cooked in a medium spicy sauce with capsicum, onion & coriander.',
         price: 8.95,
         isSpicy: true
@@ -718,7 +718,7 @@ export const menuData: MenuCategory[] = [
       {
         name: 'Plain Naan',
         description: 'Traditional soft and fluffy naan bread baked fresh in our tandoor',
-        price: 2.50,
+        price: 2.30,
         isVegetarian: true,
         isPopular: true
       },
@@ -792,6 +792,13 @@ export const menuData: MenuCategory[] = [
         isVegetarian: true,
         isVegan: true
       },
+            {
+        name: 'Chapati',
+        description: '',
+        price: 1.95,
+        isVegetarian: true,
+        isVegan: true
+      },
       {
         name: 'Puri',
         description: 'Deep-fried puffed bread, light and crispy',
@@ -807,7 +814,7 @@ export const menuData: MenuCategory[] = [
         isVegan: true
       },
       {
-        name: 'Raita (cucumber or onion)',
+        name: 'Raita',
         description: 'Cooling yogurt-based side dish with cucumber or onion',
         price: 1.80,
         isVegetarian: true
