@@ -24,7 +24,11 @@ const BasketDrawer: React.FC<BasketDrawerProps> = ({
 
   const handleCallWithOrder = () => {
     // Initiate a phone call
-    const phoneNumber = RESTAURANT_DATA.phone.replace(/\D/g, ''); // Remove non-numeric characters
+    // Remove all non-digit characters except the leading +
+    const phoneNumber = RESTAURANT_DATA.phone.replace(/^\+?([0-9\s-]+)/, (match) => {
+      // Keep the + if it exists, then remove all other non-digit characters
+      return match.startsWith('+') ? '+' + match.replace(/\D/g, '') : match.replace(/\D/g, '');
+    });
     window.location.href = `tel:${phoneNumber}`;
   };
 
