@@ -873,14 +873,14 @@ export const menuData: MenuCategory[] = [
       {
         name: 'Sunday Night Special Five Course Meal - Adult',
         description: 'Papadum & Chutneys • Choice of Any starters & Any Main Dishes from the menu (except King Prawns, Salmon, Duck & Lamb Chop) • Choice of Rice, Naan or Chips • Served with tea or coffee • Any extras £1.50',
-        price: 12.95,
+        price: 14.95,
         isPopular: true,
         isSundayOnly: true
       },
       {
         name: 'Sunday Night Special Five Course Meal - Child',
         description: 'Papadum & Chutneys • Choice of Any starters & Any Main Dishes from the menu (except King Prawns, Salmon, Duck & Lamb Chop) • Choice of Rice, Naan or Chips • Served with tea or coffee • Any extras £1.50',
-        price: 9.95,
+        price: 10.95,
         isPopular: true,
         isSundayOnly: true
       }
