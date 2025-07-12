@@ -22,33 +22,10 @@ const BasketDrawer: React.FC<BasketDrawerProps> = ({
     return `£${price.toFixed(2)}`;
   };
 
-  const generateOrderSummary = (): string => {
-    if (basket.items.length === 0) return '';
-    
-    let summary = `Hello! I'd like to place a takeaway order:\n\n`;
-    
-    basket.items.forEach((item, index) => {
-      summary += `${index + 1}. ${item.name} x${item.quantity} - ${formatPrice(item.price * item.quantity)}\n`;
-    });
-    
-    summary += `\nTotal: ${formatPrice(basket.total)}\n\n`;
-    summary += `Please let me know the collection time. Thank you!`;
-    
-    return encodeURIComponent(summary);
-  };
-
   const handleCallWithOrder = () => {
-    // For mobile devices, we can try to pre-fill SMS or just call
-    const orderSummary = generateOrderSummary();
-    
-    // Try to open SMS with order details (works on mobile)
-    if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
-      const smsUrl = `sms:${RESTAURANT_DATA.phone}?body=${orderSummary}`;
-      window.open(smsUrl, '_blank');
-    }
-    
-    // Also initiate the call
-    window.open(`tel:${RESTAURANT_DATA.phone}`, '_blank');
+    // Initiate a phone call
+    const phoneNumber = RESTAURANT_DATA.phone.replace(/\D/g, ''); // Remove non-numeric characters
+    window.location.href = `tel:${phoneNumber}`;
   };
 
   if (!basket.isOpen) return null;
