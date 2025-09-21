@@ -1,11 +1,9 @@
 import React from 'react';
 import { Trophy, Award, ChefHat, Star, Flame, Leaf } from 'lucide-react';
 import { MenuCategory } from '../../types/menu';
-import AddToBasketButton from '../AddToBasketButton';
 
 interface SignatureDishesSectionProps {
   category: MenuCategory;
-  onAddToBasket: (item: Omit<import('../../types/basket').BasketItem, 'id' | 'quantity'>) => void;
   showVegetarianOnly: boolean;
   selectedSpiceLevel: string;
   getSpiceLevelFromItem: (item: any) => string;
@@ -13,7 +11,6 @@ interface SignatureDishesSectionProps {
 
 const SignatureDishesSection: React.FC<SignatureDishesSectionProps> = ({
   category,
-  onAddToBasket,
   showVegetarianOnly,
   selectedSpiceLevel,
   getSpiceLevelFromItem
@@ -22,17 +19,6 @@ const SignatureDishesSection: React.FC<SignatureDishesSectionProps> = ({
     return `£${price.toFixed(2)}`;
   };
 
-  const handleAddToBasket = (item: any) => {
-    onAddToBasket({
-      name: item.name,
-      price: item.price,
-      category: category.name,
-      isSpicy: item.isSpicy,
-      isVegetarian: item.isVegetarian,
-      isVegan: item.isVegan,
-      isPopular: item.isPopular
-    });
-  };
 
   // Filter items based on vegetarian and spice level filters
   const filteredItems = category.items.filter(item => {
@@ -120,10 +106,9 @@ const SignatureDishesSection: React.FC<SignatureDishesSectionProps> = ({
 
           {/* Add to Basket Button */}
           <div className="mt-4 pt-3 border-t border-purple-200">
-            <AddToBasketButton
-              onAdd={() => handleAddToBasket(item)}
-              className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
-            />
+            <div className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center py-3 rounded-lg font-bold">
+              Signature Dish
+            </div>
           </div>
         </div>
       </div>

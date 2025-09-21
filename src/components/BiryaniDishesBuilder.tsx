@@ -2,39 +2,9 @@ import React, { useState } from 'react';
 import { Crown, Flame, Leaf, Star, Plus, Check, Sparkles, Award } from 'lucide-react';
 import { biryaniProteins, createBiryaniDish, BiryaniProtein } from '../data/biryaniDishes';
 
-interface BiryaniDishesBuilderProps {
-  onAddToBasket: (item: Omit<import('../types/basket').BasketItem, 'id' | 'quantity'>) => void;
-}
-
-const BiryaniDishesBuilder: React.FC<BiryaniDishesBuilderProps> = ({ onAddToBasket }) => {
+const BiryaniDishesBuilder: React.FC = () => {
   const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
 
-  const handleQuickAdd = (protein: BiryaniProtein) => {
-    const dish = createBiryaniDish(protein);
-    const itemKey = `biryani-${protein.id}`;
-    
-    onAddToBasket({
-      name: dish.name,
-      price: dish.price,
-      category: 'Biryani Dishes',
-      isSpicy: true, // Biryani is typically medium spiced
-      isVegetarian: dish.isVegetarian,
-      isVegan: dish.isVegan,
-      isPopular: dish.isPopular
-    });
-
-    // Add to added items for visual feedback
-    setAddedItems(prev => new Set([...prev, itemKey]));
-    
-    // Remove from added items after 3 seconds
-    setTimeout(() => {
-      setAddedItems(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(itemKey);
-        return newSet;
-      });
-    }, 3000);
-  };
 
   const formatPrice = (price: number): string => {
     return `£${price.toFixed(2)}`;
@@ -112,26 +82,11 @@ const BiryaniDishesBuilder: React.FC<BiryaniDishesBuilderProps> = ({ onAddToBask
                       </div>
                     )}
                   </div>
-                  <button
-                    onClick={() => handleQuickAdd(protein)}
-                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg transition-all duration-300 transform hover:scale-105 ${
-                      isAdded 
-                        ? 'bg-green-600 text-white shadow-lg' 
-                        : 'bg-gradient-to-r from-orange-600 to-red-600 text-white hover:from-orange-700 hover:to-red-700 shadow-lg hover:shadow-xl'
-                    }`}
-                  >
-                    {isAdded ? (
-                      <div className="flex items-center justify-center gap-1 sm:gap-2">
-                        <Check className="w-4 h-4 sm:w-5 sm:h-5" />
-                        <span>Added to Basket!</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center justify-center gap-1 sm:gap-2">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-                        <span>Add to Basket</span>
-                      </div>
-                    )}
-                  </button>
+                  <div className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg text-center">
+                    <div className="flex items-center justify-center gap-1 sm:gap-2">
+                      <span>Premium Biryani</span>
+                    </div>
+                  </div>
                 </div>
               );
             })}
@@ -189,26 +144,11 @@ const BiryaniDishesBuilder: React.FC<BiryaniDishesBuilderProps> = ({ onAddToBask
                             </div>
                           </div>
                           
-                          <button
-                            onClick={() => handleQuickAdd(protein)}
-                            className={`px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300 transform hover:scale-105 whitespace-nowrap ${
-                              isAdded 
-                                ? 'bg-green-600 text-white shadow-lg' 
-                                : 'bg-gradient-to-r from-orange-600 to-red-600 text-white hover:from-orange-700 hover:to-red-700 shadow-lg hover:shadow-xl'
-                            }`}
-                          >
-                            {isAdded ? (
-                              <div className="flex items-center gap-1">
-                                <Check className="w-3 h-3" />
-                                <span>Added!</span>
-                              </div>
-                            ) : (
-                              <div className="flex items-center gap-1">
-                                <Plus className="w-3 h-3" />
-                                <span>Add</span>
-                              </div>
-                            )}
-                          </button>
+                          <div className="px-4 py-2 rounded-lg font-bold text-sm bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg text-center whitespace-nowrap">
+                            <div className="flex items-center justify-center gap-1">
+                              <span>Premium</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
 
@@ -247,26 +187,11 @@ const BiryaniDishesBuilder: React.FC<BiryaniDishesBuilderProps> = ({ onAddToBask
                             </div>
                           </div>
                           
-                          <button
-                            onClick={() => handleQuickAdd(protein)}
-                            className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 whitespace-nowrap ${
-                              isAdded 
-                                ? 'bg-green-600 text-white shadow-lg' 
-                                : 'bg-gradient-to-r from-orange-600 to-red-600 text-white hover:from-orange-700 hover:to-red-700 shadow-lg hover:shadow-xl'
-                            }`}
-                          >
-                            {isAdded ? (
-                              <div className="flex items-center gap-2">
-                                <Check className="w-4 h-4" />
-                                <span>Added!</span>
-                              </div>
-                            ) : (
-                              <div className="flex items-center gap-2">
-                                <Plus className="w-4 h-4" />
-                                <span>Add</span>
-                              </div>
-                            )}
-                          </button>
+                          <div className="px-6 py-3 rounded-lg font-bold bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg text-center whitespace-nowrap">
+                            <div className="flex items-center justify-center gap-2">
+                              <span>Premium</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

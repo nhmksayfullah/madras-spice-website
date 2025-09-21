@@ -5,10 +5,9 @@ import { isSunday, getCurrentDayName } from '../utils/dateUtils';
 
 interface SundaySpecialCardProps {
   item: MenuItem;
-  onAddToBasket?: (item: Omit<import('../types/basket').BasketItem, 'id' | 'quantity'>) => void;
 }
 
-const SundaySpecialCard: React.FC<SundaySpecialCardProps> = ({ item, onAddToBasket }) => {
+const SundaySpecialCard: React.FC<SundaySpecialCardProps> = ({ item }) => {
   const isAvailable = isSunday();
   const currentDay = getCurrentDayName();
   const isAdult = item.name.includes('Adult');
@@ -17,19 +16,6 @@ const SundaySpecialCard: React.FC<SundaySpecialCardProps> = ({ item, onAddToBask
     return `£${price.toFixed(2)}`;
   };
 
-  const handleAddToBasket = () => {
-    if (!isAvailable || !onAddToBasket) return;
-    
-    onAddToBasket({
-      name: item.name,
-      price: item.price,
-      category: 'Sunday Night Special',
-      isSpicy: false,
-      isVegetarian: false,
-      isVegan: false,
-      isPopular: item.isPopular
-    });
-  };
 
   return (
     <div className={`relative bg-gradient-to-br rounded-2xl p-8 shadow-2xl border-4 transition-all duration-500 transform hover:scale-105 ${
@@ -197,27 +183,23 @@ const SundaySpecialCard: React.FC<SundaySpecialCardProps> = ({ item, onAddToBask
 
       {/* Action Button */}
       <div className="text-center">
-        <button
-          onClick={handleAddToBasket}
-          disabled={!isAvailable}
-          className={`px-8 py-4 rounded-xl font-bold text-xl transition-all duration-300 transform ${
-            isAvailable 
-              ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 hover:scale-105 shadow-lg hover:shadow-xl' 
-              : 'bg-gray-400 text-gray-600 cursor-not-allowed opacity-50'
-          }`}
-        >
+        <div className={`px-8 py-4 rounded-xl font-bold text-xl ${
+          isAvailable 
+            ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg' 
+            : 'bg-gray-400 text-gray-600 opacity-50'
+        }`}>
           {isAvailable ? (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center gap-3">
               <Calendar className="w-6 h-6" />
-              <span>Add to Basket - {formatPrice(item.price)}</span>
+              <span>Price: {formatPrice(item.price)}</span>
             </div>
           ) : (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center gap-3">
               <Clock className="w-6 h-6" />
               <span>Available Sundays Only</span>
             </div>
           )}
-        </button>
+        </div>
         
         {isAvailable && (
           <p className="text-sm text-gray-600 mt-3">

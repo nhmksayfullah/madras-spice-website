@@ -2,30 +2,17 @@ import React from 'react';
 import { Users, Star, Utensils, Crown, Sparkles, Check, Flame, Leaf } from 'lucide-react';
 import { MenuItem, MenuCategory } from '../types/menu';
 import { setMealDetails } from '../data/menuData';
-import AddToBasketButton from './AddToBasketButton';
 
 interface SetMealCardProps {
   item: MenuItem;
   category: MenuCategory;
-  onAddToBasket: (item: Omit<import('../types/basket').BasketItem, 'id' | 'quantity'>) => void;
 }
 
-const SetMealCard: React.FC<SetMealCardProps> = ({ item, category, onAddToBasket }) => {
+const SetMealCard: React.FC<SetMealCardProps> = ({ item, category }) => {
   const formatPrice = (price: number): string => {
     return `£${price.toFixed(2)}`;
   };
 
-  const handleAddToBasket = () => {
-    onAddToBasket({
-      name: item.name,
-      price: item.price,
-      category: category.name,
-      isSpicy: item.isSpicy,
-      isVegetarian: item.isVegetarian,
-      isVegan: item.isVegan,
-      isPopular: item.isPopular
-    });
-  };
 
   const setMealInfo = setMealDetails[item.name as keyof typeof setMealDetails];
   const isVegetarian = item.name.includes('Vegetable');
@@ -184,16 +171,15 @@ const SetMealCard: React.FC<SetMealCardProps> = ({ item, category, onAddToBasket
         )}
       </div>
 
-      {/* Add to Basket Button */}
+      {/* Price Display */}
       <div className="text-center">
-        <AddToBasketButton
-          onAdd={handleAddToBasket}
-          className={`text-xl px-8 py-4 shadow-2xl ${
-            isVegetarian 
-              ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700' 
-              : 'bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700'
-          }`}
-        />
+        <div className={`text-xl px-8 py-4 shadow-2xl rounded-xl ${
+          isVegetarian 
+            ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white' 
+            : 'bg-gradient-to-r from-orange-600 to-red-600 text-white'
+        }`}>
+          <span className="font-bold">Set Meal for Two</span>
+        </div>
       </div>
     </div>
   );

@@ -1,11 +1,9 @@
 import React from 'react';
 import { Star, Flame, Leaf } from 'lucide-react';
 import { MenuCategory } from '../../types/menu';
-import AddToBasketButton from '../AddToBasketButton';
 
 interface TandooriSectionProps {
   category: MenuCategory;
-  onAddToBasket: (item: Omit<import('../../types/basket').BasketItem, 'id' | 'quantity'>) => void;
   showVegetarianOnly: boolean;
   selectedSpiceLevel: string;
   getSpiceLevelFromItem: (item: any) => string;
@@ -13,7 +11,6 @@ interface TandooriSectionProps {
 
 const TandooriSection: React.FC<TandooriSectionProps> = ({
   category,
-  onAddToBasket,
   showVegetarianOnly,
   selectedSpiceLevel,
   getSpiceLevelFromItem
@@ -22,17 +19,6 @@ const TandooriSection: React.FC<TandooriSectionProps> = ({
     return `£${price.toFixed(2)}`;
   };
 
-  const handleAddToBasket = (item: any) => {
-    onAddToBasket({
-      name: item.name,
-      price: item.price,
-      category: category.name,
-      isSpicy: item.isSpicy,
-      isVegetarian: item.isVegetarian,
-      isVegan: item.isVegan,
-      isPopular: item.isPopular
-    });
-  };
 
   // Filter items based on vegetarian and spice level filters
   const filteredItems = category.items.filter(item => {
@@ -91,10 +77,6 @@ const TandooriSection: React.FC<TandooriSectionProps> = ({
               
               <div className="flex flex-row sm:flex-col items-center justify-between sm:justify-center gap-2 sm:gap-3 sm:ml-4 flex-shrink-0">
                 <span className="text-base sm:text-lg font-bold text-orange-600 order-1 sm:order-none">{formatPrice(item.price)}</span>
-                <AddToBasketButton
-                  onAdd={() => handleAddToBasket(item)}
-                  className="text-xs sm:text-sm px-2 sm:px-3 py-1.5 sm:py-2 order-2 sm:order-none"
-                />
               </div>
             </div>
           </div>

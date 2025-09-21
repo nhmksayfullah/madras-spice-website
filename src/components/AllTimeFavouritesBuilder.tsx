@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Flame, Leaf, Star, Plus, Check, ArrowDown, Crown, Sparkles } from 'lucide-react';
 import { favouriteProteins, favouriteSauces, createAllTimeFavouriteDish, Protein, FavouriteSauce } from '../data/allTimeFavourites';
 
-interface AllTimeFavouritesBuilderProps {
-  onAddToBasket: (item: Omit<import('../types/basket').BasketItem, 'id' | 'quantity'>) => void;
-}
-
-const AllTimeFavouritesBuilder: React.FC<AllTimeFavouritesBuilderProps> = ({ onAddToBasket }) => {
+const AllTimeFavouritesBuilder: React.FC = () => {
   const [selectedProtein, setSelectedProtein] = useState<Protein | null>(null);
   const [selectedSauce, setSelectedSauce] = useState<FavouriteSauce | null>(null);
   const [showSauceSelection, setShowSauceSelection] = useState(false);
@@ -44,66 +40,6 @@ const AllTimeFavouritesBuilder: React.FC<AllTimeFavouritesBuilderProps> = ({ onA
     setSelectedSauce(sauce);
   };
 
-  const handleAddToBasket = () => {
-    if (!selectedProtein || !selectedSauce) return;
-    
-    const dish = createAllTimeFavouriteDish(selectedProtein, selectedSauce);
-    const itemKey = `${selectedProtein.id}-${selectedSauce.id}`;
-    
-    onAddToBasket({
-      name: dish.name,
-      price: dish.price,
-      category: 'All Time Favourites',
-      isSpicy: selectedSauce.spiceLevel !== 'Mild',
-      isVegetarian: dish.isVegetarian,
-      isVegan: dish.isVegan,
-      isPopular: dish.isPopular
-    });
-
-    // Add to added items for visual feedback
-    setAddedItems(prev => new Set([...prev, itemKey]));
-    
-    // Reset selections for next order
-    setSelectedProtein(null);
-    setSelectedSauce(null);
-    setShowSauceSelection(false);
-    
-    // Remove from added items after 3 seconds
-    setTimeout(() => {
-      setAddedItems(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(itemKey);
-        return newSet;
-      });
-    }, 3000);
-  };
-
-  const handleQuickAdd = (protein: Protein, sauce: FavouriteSauce) => {
-    const dish = createAllTimeFavouriteDish(protein, sauce);
-    const itemKey = `${protein.id}-${sauce.id}`;
-    
-    onAddToBasket({
-      name: dish.name,
-      price: dish.price,
-      category: 'All Time Favourites',
-      isSpicy: sauce.spiceLevel !== 'Mild',
-      isVegetarian: dish.isVegetarian,
-      isVegan: dish.isVegan,
-      isPopular: dish.isPopular
-    });
-
-    // Add to added items for visual feedback
-    setAddedItems(prev => new Set([...prev, itemKey]));
-    
-    // Remove from added items after 3 seconds
-    setTimeout(() => {
-      setAddedItems(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(itemKey);
-        return newSet;
-      });
-    }, 3000);
-  };
 
   const formatPrice = (price: number): string => {
     return `£${price.toFixed(2)}`;
@@ -170,26 +106,11 @@ const AllTimeFavouritesBuilder: React.FC<AllTimeFavouritesBuilderProps> = ({ onA
                       {formatPrice(dish.price)}
                     </div>
                   </div>
-                  <button
-                    onClick={() => handleQuickAdd(combo.protein, combo.sauce)}
-                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg transition-all duration-300 transform hover:scale-105 ${
-                      isAdded 
-                        ? 'bg-green-600 text-white shadow-lg' 
-                        : 'bg-gradient-to-r from-pink-600 to-red-600 text-white hover:from-pink-700 hover:to-red-700 shadow-lg hover:shadow-xl'
-                    }`}
-                  >
-                    {isAdded ? (
-                      <div className="flex items-center justify-center gap-1 sm:gap-2">
-                        <Check className="w-4 h-4 sm:w-5 sm:h-5" />
-                        <span>Added to Basket!</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center justify-center gap-1 sm:gap-2">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-                        <span>Quick Add</span>
-                      </div>
-                    )}
-                  </button>
+                  <div className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg bg-gradient-to-r from-pink-600 to-red-600 text-white shadow-lg text-center">
+                    <div className="flex items-center justify-center gap-1 sm:gap-2">
+                      <span>Customer Favourite</span>
+                    </div>
+                  </div>
                 </div>
               );
             })}
@@ -355,17 +276,13 @@ const AllTimeFavouritesBuilder: React.FC<AllTimeFavouritesBuilderProps> = ({ onA
                   </div>
                   
                   <div className="text-center">
-                    <button
-                      onClick={handleAddToBasket}
-                      className="bg-gradient-to-r from-pink-600 to-rose-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-lg sm:text-xl hover:from-pink-700 hover:to-rose-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                    >
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
-                        <span>Add to Basket - {formatPrice(selectedProtein.basePrice)}</span>
+                    <div className="bg-gradient-to-r from-pink-600 to-rose-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-lg sm:text-xl shadow-lg">
+                      <div className="flex items-center justify-center gap-2 sm:gap-3">
+                        <span>Price: {formatPrice(selectedProtein.basePrice)}</span>
                       </div>
-                    </button>
+                    </div>
                     <p className="text-xs sm:text-sm text-gray-600 mt-2 sm:mt-3">
-                      Click to add this dish to your order and create another combination
+                      Create your perfect all-time favourite combination
                     </p>
                   </div>
                 </div>

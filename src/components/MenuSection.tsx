@@ -22,11 +22,7 @@ import RiceDishesSection from './menu-sections/RiceDishesSection';
 import SundriesNaanSection from './menu-sections/SundriesNaanSection';
 import EnglishDishesSection from './menu-sections/EnglishDishesSection';
 
-interface MenuSectionProps {
-  onAddToBasket: (item: Omit<import('../types/basket').BasketItem, 'id' | 'quantity'>) => void;
-}
-
-const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
+const MenuSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [showVegetarianOnly, setShowVegetarianOnly] = useState(false);
   const [selectedSpiceLevel, setSelectedSpiceLevel] = useState<string>('all');
@@ -79,23 +75,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
     return `£${price.toFixed(2)}`;
   };
 
-  const handleAddToBasket = (item: MenuItem, categoryName: string) => {
-    // Check if it's a Sunday-only item and prevent adding if not Sunday
-    if (item.isSundayOnly && !isSunday()) {
-      alert('This special is only available on Sundays!');
-      return;
-    }
-
-    onAddToBasket({
-      name: item.name,
-      price: item.price,
-      category: categoryName,
-      isSpicy: item.isSpicy,
-      isVegetarian: item.isVegetarian,
-      isVegan: item.isVegan,
-      isPopular: item.isPopular
-    });
-  };
 
   const SetMealSection: React.FC<{ category: any }> = ({ category }) => {
     return (
@@ -124,7 +103,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
               key={index} 
               item={item} 
               category={category}
-              onAddToBasket={onAddToBasket}
             />
           ))}
         </div>
@@ -175,7 +153,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
             <SundaySpecialCard 
               key={index} 
               item={item} 
-              onAddToBasket={onAddToBasket}
             />
           ))}
         </div>
@@ -312,7 +289,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('condiments') && (
             <CondimentsSection 
               category={menuData.find(cat => cat.id === 'condiments')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -323,7 +299,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('starters') && (
             <StartersSection 
               category={menuData.find(cat => cat.id === 'starters')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -334,7 +309,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('vegetarian-starters') && (
             <VegetarianStartersSection 
               category={menuData.find(cat => cat.id === 'vegetarian-starters')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -345,7 +319,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('seafood-starters') && (
             <SeafoodStartersSection 
               category={menuData.find(cat => cat.id === 'seafood-starters')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -356,7 +329,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('tandoori') && (
             <TandooriSection 
               category={menuData.find(cat => cat.id === 'tandoori')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -367,7 +339,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('premium-platters') && (
             <PremiumPlattersSection 
               category={menuData.find(cat => cat.id === 'premium-platters')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -378,7 +349,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('signature-dishes') && (
             <SignatureDishesSection 
               category={menuData.find(cat => cat.id === 'signature-dishes')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -388,27 +358,26 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {/* 8. Traditional Dishes (Builder) */}
           {shouldShowSection('traditional-dishes') && (
             <div className="px-1 sm:px-2">
-              <TraditionalDishBuilder onAddToBasket={onAddToBasket} />
+              <TraditionalDishBuilder />
             </div>
           )}
 
           {/* 9. All Time Favourites (Builder) */}
           {shouldShowSection('all-time-favourites') && (
             <div className="px-1 sm:px-2">
-              <AllTimeFavouritesBuilder onAddToBasket={onAddToBasket} />
+              <AllTimeFavouritesBuilder />
             </div>
           )}
 
           {/* 10. Biryani Dishes (Builder) - REMOVED PADDING */}
           {shouldShowSection('biryani-dishes') && (
-            <BiryaniDishesBuilder onAddToBasket={onAddToBasket} />
+            <BiryaniDishesBuilder />
           )}
 
           {/* 11. Vegetable Side Dishes */}
           {shouldShowSection('vegetable-side-dishes') && (
             <VegetableSideDishesSection 
               category={menuData.find(cat => cat.id === 'vegetable-side-dishes')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -419,7 +388,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('rice-dishes') && (
             <RiceDishesSection 
               category={menuData.find(cat => cat.id === 'rice-dishes')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -430,7 +398,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('sundries-naan-breads') && (
             <SundriesNaanSection 
               category={menuData.find(cat => cat.id === 'sundries-naan-breads')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}
@@ -441,7 +408,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ onAddToBasket }) => {
           {shouldShowSection('english-dishes') && (
             <EnglishDishesSection 
               category={menuData.find(cat => cat.id === 'english-dishes')!}
-              onAddToBasket={onAddToBasket}
               showVegetarianOnly={showVegetarianOnly}
               selectedSpiceLevel={selectedSpiceLevel}
               getSpiceLevelFromItem={getSpiceLevelFromItem}

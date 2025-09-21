@@ -2,11 +2,9 @@ import React from 'react';
 import { Crown, Sparkles, Users, ChefHat, Star, Flame, Leaf } from 'lucide-react';
 import { MenuCategory } from '../../types/menu';
 import { platterDetails } from '../../data/menuData';
-import AddToBasketButton from '../AddToBasketButton';
 
 interface PremiumPlattersSectionProps {
   category: MenuCategory;
-  onAddToBasket: (item: Omit<import('../../types/basket').BasketItem, 'id' | 'quantity'>) => void;
   showVegetarianOnly: boolean;
   selectedSpiceLevel: string;
   getSpiceLevelFromItem: (item: any) => string;
@@ -14,7 +12,6 @@ interface PremiumPlattersSectionProps {
 
 const PremiumPlattersSection: React.FC<PremiumPlattersSectionProps> = ({
   category,
-  onAddToBasket,
   showVegetarianOnly,
   selectedSpiceLevel,
   getSpiceLevelFromItem
@@ -23,17 +20,6 @@ const PremiumPlattersSection: React.FC<PremiumPlattersSectionProps> = ({
     return `£${price.toFixed(2)}`;
   };
 
-  const handleAddToBasket = (item: any) => {
-    onAddToBasket({
-      name: item.name,
-      price: item.price,
-      category: category.name,
-      isSpicy: item.isSpicy,
-      isVegetarian: item.isVegetarian,
-      isVegan: item.isVegan,
-      isPopular: item.isPopular
-    });
-  };
 
   // Filter items based on vegetarian and spice level filters
   const filteredItems = category.items.filter(item => {
@@ -134,12 +120,11 @@ const PremiumPlattersSection: React.FC<PremiumPlattersSectionProps> = ({
           )}
         </div>
 
-        {/* Add to Basket Button */}
+        {/* Premium Display */}
         <div className="text-center">
-          <AddToBasketButton
-            onAdd={() => handleAddToBasket(item)}
-            className="text-xl px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 shadow-lg"
-          />
+          <div className="text-xl px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg rounded-lg font-bold">
+            Premium Platter
+          </div>
         </div>
       </div>
     );

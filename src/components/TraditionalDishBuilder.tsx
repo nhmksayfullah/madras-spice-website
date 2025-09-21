@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { ChefHat, Flame, Leaf, Star, Plus, Check, ArrowDown, ArrowRight } from 'lucide-react';
 import { proteins, currySauces, createTraditionalDish, Protein, CurrySauce } from '../data/traditionalDishes';
 
-interface TraditionalDishBuilderProps {
-  onAddToBasket: (item: Omit<import('../types/basket').BasketItem, 'id' | 'quantity'>) => void;
-}
-
-const TraditionalDishBuilder: React.FC<TraditionalDishBuilderProps> = ({ onAddToBasket }) => {
+const TraditionalDishBuilder: React.FC = () => {
   const [selectedProtein, setSelectedProtein] = useState<Protein | null>(null);
   const [selectedSauce, setSelectedSauce] = useState<CurrySauce | null>(null);
   const [showSauceSelection, setShowSauceSelection] = useState(false);
@@ -44,66 +40,7 @@ const TraditionalDishBuilder: React.FC<TraditionalDishBuilderProps> = ({ onAddTo
     setSelectedSauce(sauce);
   };
 
-  const handleAddToBasket = () => {
-    if (!selectedProtein || !selectedSauce) return;
-    
-    const dish = createTraditionalDish(selectedProtein, selectedSauce);
-    const itemKey = `${selectedProtein.id}-${selectedSauce.id}`;
-    
-    onAddToBasket({
-      name: dish.name,
-      price: dish.price,
-      category: 'Traditional Dishes',
-      isSpicy: selectedSauce.spiceLevel !== 'Mild',
-      isVegetarian: dish.isVegetarian,
-      isVegan: dish.isVegan,
-      isPopular: dish.isPopular
-    });
 
-    // Add to added items for visual feedback
-    setAddedItems(prev => new Set([...prev, itemKey]));
-    
-    // Reset selections for next order
-    setSelectedProtein(null);
-    setSelectedSauce(null);
-    setShowSauceSelection(false);
-    
-    // Remove from added items after 3 seconds
-    setTimeout(() => {
-      setAddedItems(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(itemKey);
-        return newSet;
-      });
-    }, 3000);
-  };
-
-  const handleQuickAdd = (protein: Protein, sauce: CurrySauce) => {
-    const dish = createTraditionalDish(protein, sauce);
-    const itemKey = `${protein.id}-${sauce.id}`;
-    
-    onAddToBasket({
-      name: dish.name,
-      price: dish.price,
-      category: 'Traditional Dishes',
-      isSpicy: sauce.spiceLevel !== 'Mild',
-      isVegetarian: dish.isVegetarian,
-      isVegan: dish.isVegan,
-      isPopular: dish.isPopular
-    });
-
-    // Add to added items for visual feedback
-    setAddedItems(prev => new Set([...prev, itemKey]));
-    
-    // Remove from added items after 3 seconds
-    setTimeout(() => {
-      setAddedItems(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(itemKey);
-        return newSet;
-      });
-    }, 3000);
-  };
 
   const formatPrice = (price: number): string => {
     return `£${price.toFixed(2)}`;
@@ -170,26 +107,11 @@ const TraditionalDishBuilder: React.FC<TraditionalDishBuilderProps> = ({ onAddTo
                       {formatPrice(dish.price)}
                     </div>
                   </div>
-                  <button
-                    onClick={() => handleQuickAdd(combo.protein, combo.sauce)}
-                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg transition-all duration-300 transform hover:scale-105 ${
-                      isAdded 
-                        ? 'bg-green-600 text-white shadow-lg' 
-                        : 'bg-gradient-to-r from-orange-600 to-red-600 text-white hover:from-orange-700 hover:to-red-700 shadow-lg hover:shadow-xl'
-                    }`}
-                  >
-                    {isAdded ? (
-                      <div className="flex items-center justify-center gap-1 sm:gap-2">
-                        <Check className="w-4 h-4 sm:w-5 sm:h-5" />
-                        <span>Added to Basket!</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center justify-center gap-1 sm:gap-2">
-                        <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-                        <span>Quick Add</span>
-                      </div>
-                    )}
-                  </button>
+                  <div className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-lg bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg text-center">
+                    <div className="flex items-center justify-center gap-1 sm:gap-2">
+                      <span>Popular Choice</span>
+                    </div>
+                  </div>
                 </div>
               );
             })}
@@ -355,17 +277,13 @@ const TraditionalDishBuilder: React.FC<TraditionalDishBuilderProps> = ({ onAddTo
                   </div>
                   
                   <div className="text-center">
-                    <button
-                      onClick={handleAddToBasket}
-                      className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-lg sm:text-xl hover:from-green-700 hover:to-green-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                    >
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
-                        <span>Add to Basket - {formatPrice(selectedProtein.basePrice)}</span>
+                    <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-lg sm:text-xl shadow-lg">
+                      <div className="flex items-center justify-center gap-2 sm:gap-3">
+                        <span>Price: {formatPrice(selectedProtein.basePrice)}</span>
                       </div>
-                    </button>
+                    </div>
                     <p className="text-xs sm:text-sm text-gray-600 mt-2 sm:mt-3">
-                      Click to add this dish to your order and create another combination
+                      Customize your traditional dish with your preferred protein and sauce
                     </p>
                   </div>
                 </div>
